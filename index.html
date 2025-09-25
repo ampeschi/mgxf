@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MGxF - Mercado Ganadero de Futuros</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            line-height: 1.6;
+
+            color: #333;
+
+            margin: 0;
+
+            padding: 0;
+
+            background: #f8f9fa;
+
+        }
+
+ 
+
+        .container {
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 20px;
+
+        }
+
+ 
+
+        /* Header */
+
+        .header {
+
+            background: #2c3e50;
+
+            color: white;
+
+            padding: 20px 0;
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        }
+
+ 
+
+        .logo-section {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-bottom: 10px;
+
+        }
+
+ 
+
+        .logo-box {
+
+            width: 60px;
+
+            height: 60px;
+
+            background: #1a1a1a;
+
+            border-radius: 8px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            position: relative;
+
+            border: 2px solid #D4AF37;
+
+        }
+
+ 
+
+        .logo-content {
+
+            color: #D4AF37;
+
+            font-weight: bold;
+
+            font-size: 12px;
+
+            text-align: center;
+
+        }
+
+ 
+
+        .company-name {
+
+            font-size: 2em;
+
+            font-weight: bold;
+
+            color: #D4AF37;
+
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+        }
+
+ 
+
+        .tagline {
+
+            font-size: 1.1em;
+
+            color: #ecf0f1;
+
+            margin-top: 5px;
+
+        }
+
+ 
+
+        .hero-description {
+
+            font-size: 1.2em;
+
+            margin-top: 15px;
+
+            color: #bdc3c7;
+
+        }
+
+ 
+
+        /* Sections */
+
+        .section {
+
+            background: white;
+
+            margin: 30px 0;
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+            border-left: 5px solid #D4AF37;
+
+        }
+
+ 
+
+        .section-title {
+
+            font-size: 1.8em;
+
+            color: #2c3e50;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+
+            border-bottom: 3px solid #D4AF37;
+
+            padding-bottom: 10px;
+
+            position: relative;
+
+        }
+
+ 
+
+        .section-subtitle {
+
+            text-align: center;
+
+            font-size: 1.1em;
+
+            color: #7f8c8d;
+
+            margin-bottom: 30px;
+
+            font-style: italic;
+
+        }
+
+ 
+
+        /* Features Grid */
+
+        .features-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 20px;
+
+            margin: 30px 0;
+
+        }
+
+ 
+
+        .feature-card {
+
+            background: #f8f9fa;
+
+            padding: 25px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            border: 2px solid #e9ecef;
+
+            transition: all 0.3s ease;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+ 
+
+        .feature-card:hover {
+
+            border-color: #D4AF37;
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+        }
+
+ 
+
+        .feature-card::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            height: 4px;
+
+            background: linear-gradient(90deg, #D4AF37, #2c3e50);
+
+            transform: scaleX(0);
+
+            transition: transform 0.3s ease;
+
+        }
+
+ 
+
+        .feature-card:hover::before {
+
+            transform: scaleX(1);
+
+        }
+
+ 
+
+        .feature-icon {
+
+            font-size: 3em;
+
+            margin-bottom: 15px;
+
+            display: block;
+
+        }
+
+ 
+
+        .feature-title {
+
+            font-size: 1.3em;
+
+            font-weight: bold;
+
+            color: #2c3e50;
+
+            margin-bottom: 15px;
+
+        }
+
+ 
+
+        .feature-text {
+
+            color: #666;
+
+            line-height: 1.6;
+
+        }
+
+ 
+
+        /* Process Steps */
+
+        .process-steps {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 25px;
+
+            margin: 30px 0;
+
+            position: relative;
+
+        }
+
+ 
+
+        .step {
+
+            text-align: center;
+
+            padding: 20px;
+
+            background: #f8f9fa;
+
+            border-radius: 10px;
+
+            transition: all 0.3s ease;
+
+        }
+
+ 
+
+        .step:hover {
+
+            background: #fff;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+        }
+
+ 
+
+        .step-number {
+
+            width: 50px;
+
+            height: 50px;
+
+            background: #2c3e50;
+
+            color: #D4AF37;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 1.5em;
+
+            font-weight: bold;
+
+            margin: 0 auto 15px;
+
+            border: 3px solid #D4AF37;
+
+        }
+
+ 
+
+        .step-title {
+
+            font-size: 1.2em;
+
+            font-weight: bold;
+
+            color: #2c3e50;
+
+            margin-bottom: 10px;
+
+        }
+
+ 
+
+        .step-text {
+
+            color: #666;
+
+        }
+
+ 
+
+        /* Reglamento Box */
+
+        .reglamento-box {
+
+            background: #f8f9fa;
+
+            border-left: 5px solid #2c3e50;
+
+            padding: 20px;
+
+            margin: 20px 0;
+
+            border-radius: 5px;
+
+        }
+
+ 
+
+        .reglamento-title {
+
+            font-weight: bold;
+
+            color: #2c3e50;
+
+            margin-bottom: 15px;
+
+            font-size: 1.1em;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+ 
+
+        .reglamento-list {
+
+            list-style: none;
+
+            padding: 0;
+
+        }
+
+ 
+
+        .reglamento-list li {
+
+            background: white;
+
+            margin: 10px 0;
+
+            padding: 15px;
+
+            border-radius: 5px;
+
+            border-left: 3px solid #D4AF37;
+
+            transition: all 0.3s ease;
+
+        }
+
+ 
+
+        .reglamento-list li:hover {
+
+            transform: translateX(5px);
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+        }
+
+ 
+
+        /* Highlight Boxes */
+
+        .highlight-box {
+
+            background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+
+            border: 1px solid #28a745;
+
+            padding: 20px;
+
+            border-radius: 8px;
+
+            margin: 20px 0;
+
+            position: relative;
+
+        }
+
+ 
+
+        .highlight-box::before {
+
+            content: "💰";
+
+            position: absolute;
+
+            top: -10px;
+
+            left: 20px;
+
+            background: white;
+
+            padding: 0 10px;
+
+            font-size: 1.2em;
+
+        }
+
+ 
+
+        .highlight-title {
+
+            font-weight: bold;
+
+            color: #155724;
+
+            margin-bottom: 10px;
+
+            font-size: 1.1em;
+
+        }
+
+ 
+
+        .partes-container {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 20px;
+
+            margin-top: 15px;
+
+        }
+
+ 
+
+        .parte-card {
+
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 8px;
+
+            border: 2px solid #D4AF37;
+
+            transition: all 0.3s ease;
+
+        }
+
+ 
+
+        .parte-card:hover {
+
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+
+            transform: translateY(-3px);
+
+        }
+
+ 
+
+        .parte-card h4 {
+
+            color: #2c3e50;
+
+            margin-bottom: 15px;
+
+            font-size: 1.2em;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+ 
+
+        .parte-icon {
+
+            width: 30px;
+
+            height: 30px;
+
+            background: #2c3e50;
+
+            color: #D4AF37;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: bold;
+
+        }
+
+ 
+
+        /* Contact Form */
+
+        .contact-form {
+
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            background: #f8f9fa;
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+            border: 2px solid #e9ecef;
+
+        }
+
+ 
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+ 
+
+        .form-label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+
+            color: #2c3e50;
+
+        }
+
+ 
+
+        .form-input, .form-textarea, .form-select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 2px solid #e9ecef;
+
+            border-radius: 5px;
+
+            font-size: 1em;
+
+            box-sizing: border-box;
+
+            transition: border-color 0.3s ease;
+
+        }
+
+ 
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+
+            border-color: #D4AF37;
+
+            outline: none;
+
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+
+        }
+
+ 
+
+        .form-textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+
+        }
+
+ 
+
+        .submit-button {
+
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+
+            color: white;
+
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-size: 1.1em;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            width: 100%;
+
+            transition: all 0.3s ease;
+
+        }
+
+ 
+
+        .submit-button:hover {
+
+            background: linear-gradient(45deg, #34495e, #2c3e50);
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+        }
+
+ 
+
+        /* Footer */
+
+        .footer {
+
+            background: #2c3e50;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            margin-top: 50px;
+
+        }
+
+ 
+
+        .footer-content {
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+        }
+
+ 
+
+        .footer-logo {
+
+            font-size: 1.5em;
+
+            color: #D4AF37;
+
+            margin-bottom: 10px;
+
+            font-weight: bold;
+
+        }
+
+ 
+
+        /* Responsive */
+
+        @media (max-width: 768px) {
+
+            .features-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .process-steps {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .company-name {
+
+                font-size: 1.5em;
+
+            }
+
+            .container {
+
+                padding: 10px;
+
+            }
+
+            .logo-section {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+            .partes-container {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+ 
+
+        @media (max-width: 480px) {
+
+            .section {
+
+                padding: 20px;
+
+                margin: 15px 0;
+
+            }
+
+            .feature-card {
+
+                padding: 20px;
+
+            }
+
+            .contact-form {
+
+                padding: 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <div class="container">
+
+            <div class="logo-section">
+
+                <div class="logo-box">
+
+                    <div class="logo-content">MGxF</div>
+
+                </div>
+
+                <div>
+
+                    <div class="company-name">MGxF</div>
+
+                    <div class="tagline">Mercado Ganadero de Futuros</div>
+
+                </div>
+
+            </div>
+
+            <p class="hero-description">La herramienta financiera que revoluciona la ganadería argentina</p>
+
+        </div>
+
+    </div>
+
+ 
+
+    <div class="container">
+
+        <!-- Sección Quiénes Somos -->
+
+        <div class="section">
+
+            <h2 class="section-title">Quiénes Somos</h2>
+
+            <p class="section-subtitle">
+
+                En MGxF trabajamos para brindar al productor ganadero del siglo XXI una herramienta
+
+                innovadora que le permita planificar, proteger y potenciar su negocio.
+
+            </p>
+
+           
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">🎯</div>
+
+                    <div class="feature-title">Nuestra Misión</div>
+
+                    <div class="feature-text">
+
+                        Crear el primer mercado de futuros para la ganadería argentina,
+
+                        integrando consignatarias y productores en un sistema moderno, ágil y seguro.
+
+                    </div>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">🚀</div>
+
+                    <div class="feature-title">Innovación</div>
+
+                    <div class="feature-text">
+
+                        Conectamos la tradición ganadera con las herramientas financieras
+
+                        más avanzadas del siglo XXI para crear oportunidades sin precedentes.
+
+                    </div>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">🤝</div>
+
+                    <div class="feature-title">Integración</div>
+
+                    <div class="feature-text">
+
+                        Un puente estratégico entre productores, consignatarias y el mercado
+
+                        financiero argentino, generando valor para todos los participantes.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+ 
+
+        <!-- Sección Cómo Funciona -->
+
+        <div class="section">
+
+            <h2 class="section-title">Cómo Funciona</h2>
+
+            <p class="section-subtitle">
+
+                Un sistema simple y transparente diseñado específicamente para el productor ganadero
+
+            </p>
+
+           
+
+            <div class="process-steps">
+
+                <div class="step">
+
+                    <div class="step-number">1</div>
+
+                    <div class="step-title">Contratos en Kilogramos</div>
+
+                    <div class="step-text">
+
+                        Las consignatarias compran y venden contratos en kilogramos de carne
+
+                        indexados al INMAG, garantizando transparencia y referencia de mercado.
+
+                    </div>
+
+                </div>
+
+                <div class="step">
+
+                    <div class="step-number">2</div>
+
+                    <div class="step-title">Canal Confiable</div>
+
+                    <div class="step-text">
+
+                        Los contratos se comercializan exclusivamente a través de consignatarias
+
+                        registradas, garantizando confianza y cercanía con el productor.
+
+                    </div>
+
+                </div>
+
+                <div class="step">
+
+                    <div class="step-number">3</div>
+
+                    <div class="step-title">Protección Total</div>
+
+                    <div class="step-text">
+
+                        El productor obtiene cobertura ante variaciones de precios y acceso a
+
+                        herramientas financieras avanzadas para optimizar su negocio.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+ 
+
+        <!-- Sección Beneficios -->
+
+        <div class="section">
+
+            <h2 class="section-title">Beneficios para el Productor</h2>
+
+            <p class="section-subtitle">
+
+                Herramientas diseñadas para proteger y potenciar tu negocio ganadero
+
+            </p>
+
+           
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">🛡️</div>
+
+                    <div class="feature-title">Cobertura de Precios</div>
+
+                    <div class="feature-text">
+
+                        Proteja el valor de su hacienda frente a subas o bajas inesperadas en el mercado.
+
+                        Planifique con seguridad y elimine la incertidumbre de los precios futuros.
+
+                    </div>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">💰</div>
+
+                    <div class="feature-title">Herramienta Financiera</div>
+
+                    <div class="feature-text">
+
+                        Obtenga liquidez inmediata, aun cuando la hacienda esté disponible recién en los
+
+                        próximos meses. Optimice su flujo de caja y capitalice oportunidades.
+
+                    </div>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">🌦️</div>
+
+                    <div class="feature-title">Respaldo ante Emergencias</div>
+
+                    <div class="feature-text">
+
+                        En caso de ventas forzosas por contingencias climáticas u otras emergencias,
+
+                        asegure la recompra futura de hacienda a precios predeterminados.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+ 
+
+        <!-- Sección Reglamento -->
+
+        <div class="section">
+
+            <h2 class="section-title">Reglamento Operativo</h2>
+
+            <p class="section-subtitle">
+
+                Marco normativo completo para operar de manera segura y transparente en MGxF
+
+            </p>
+
+           
+
+            <div class="reglamento-box">
+
+                <div class="reglamento-title">🏛️ Marco Operativo General</div>
+
+                <ul class="reglamento-list">
+
+                    <li>El negocio es exclusivo para el uso de Consignatarias registradas y autorizadas</li>
+
+                    <li>MGxF toma el pedido de una consignataria y busca una contraparte compatible</li>
+
+                    <li>Cada consignataria garantiza y respalda completamente la operatoria de su cliente</li>
+
+                    <li>Los contratos se celebran ENTRE las consignatarias (manteniendo anonimato de clientes)</li>
+
+                    <li>Las Consignatarias compradora y vendedora celebran un contrato bajo la modalidad de MUTUO</li>
+
+                    <li>MGxF genera el espacio seguro donde se realizan las transacciones y firma de contratos</li>
+
+                    <li>MGxF actúa como nexo confiable y transparente entre ambas partes</li>
+
+                    <li>En caso de diferencias, MGxF cumple función de mediación como "amigable componedor"</li>
+
+                </ul>
+
+            </div>
+
+ 
+
+            <div class="highlight-box">
+
+                <div class="highlight-title">Estructura de Comisiones</div>
+
+                <p><strong>Comisión MGxF:</strong> Cada Consignataria abona un 1% de comisión a MGxF al momento de celebrar el contrato.</p>
+
+                <p><strong>Comisión Cliente:</strong> Cada Consignataria cobra la comisión previamente acordada con su cliente al momento de celebrar el contrato.</p>
+
+            </div>
+
+ 
+
+            <div class="reglamento-box">
+
+                <div class="reglamento-title">👥 Las Partes del Contrato</div>
+
+                <div class="partes-container">
+
+                    <div class="parte-card">
+
+                        <h4><span class="parte-icon">V</span>VENDEDOR (Dador de dinero)</h4>
+
+                        <ul style="list-style: none; padding: 0; color: #666;">
+
+                            <li>• Obtendrá la suma resultante de multiplicar los Kgs ofrecidos por el precio promedio INMAG de la semana previa al contrato</li>
+
+                            <li>• Paga comisión acordada con su consignataria al celebrar el contrato</li>
+
+                            <li>• Al vencimiento, debe devolver los Kgs pactados indexados al promedio INMAG de la semana anterior al vencimiento</li>
+
+                            <li>• <strong style="color: #D4AF37;">MÁS una tasa del 1% mensual no acumulativa</strong></li>
+
+                        </ul>
+
+                    </div>
+
+                   
+
+                    <div class="parte-card">
+
+                        <h4><span class="parte-icon">C</span>COMPRADOR (Tomador)</h4>
+
+                        <ul style="list-style: none; padding: 0; color: #666;">
+
+                            <li>• Se compromete a entregar la suma de dinero indexada al INMAG al celebrar el contrato</li>
+
+                            <li>• Recibirá el monto resultante de multiplicar los Kgs por el precio promedio INMAG de la semana anterior al vencimiento</li>
+
+                            <li>• <strong style="color: #D4AF37;">Recibirá una tasa del 1% mensual</strong></li>
+
+                            <li>• Paga comisión acordada con su consignataria al celebrar el contrato</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+ 
+
+        <!-- Sección Contacto -->
+
+        <div class="section">
+
+            <h2 class="section-title">Súmate a MGxF</h2>
+
+            <p class="section-subtitle">
+
+                Convocamos a consignatarias de todo el país a sumarse y acercar esta herramienta innovadora a cada productor
+
+            </p>
+
+           
+
+            <form class="contact-form" onsubmit="return handleFormSubmit(event)">
+
+                <div class="form-group">
+
+                    <label class="form-label" for="nombre">Nombre / Empresa</label>
+
+                    <input class="form-input" type="text" id="nombre" name="nombre" required
+
+                           placeholder="Ingrese su nombre o el nombre de su empresa">
+
+                </div>
+
+               
+
+                <div class="form-group">
+
+                    <label class="form-label" for="email">Email</label>
+
+                    <input class="form-input" type="email" id="email" name="email" required
+
+                           placeholder="ejemplo@email.com">
+
+                </div>
+
+               
+
+                <div class="form-group">
+
+                    <label class="form-label" for="telefono">Teléfono</label>
+
+                    <input class="form-input" type="tel" id="telefono" name="telefono"
+
+                           placeholder="+54 9 11 1234-5678">
+
+                </div>
+
+               
+
+                <div class="form-group">
+
+                    <label class="form-label" for="tipo">Tipo de Consulta</label>
+
+                    <select class="form-select" id="tipo" name="tipo">
+
+                        <option value="consignataria">Soy Consignataria</option>
+
+                        <option value="productor">Soy Productor</option>
+
+                        <option value="inversor">Soy Inversor</option>
+
+                        <option value="general">Consulta General</option>
+
+                        <option value="prensa">Consulta de Prensa</option>
+
+                    </select>
+
+                </div>
+
+               
+
+                <div class="form-group">
+
+                    <label class="form-label" for="mensaje">Mensaje</label>
+
+                    <textarea class="form-textarea" id="mensaje" name="mensaje" required
+
+                              placeholder="Describa su consulta o interés en MGxF..."></textarea>
+
+                </div>
+
+               
+
+                <button type="submit" class="submit-button">Enviar Consulta</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+ 
+
+    <!-- Footer -->
+
+    <div class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-logo">MGxF</div>
+
+            <p>&copy; 2025 MGxF - Mercado Ganadero de Futuros. Todos los derechos reservados.</p>
+
+            <p>Innovación financiera para la ganadería argentina del siglo XXI</p>
+
+            <p style="margin-top: 15px; font-size: 0.9em; color: #bdc3c7;">
+
+                Impulsando el futuro de la ganadería con herramientas financieras modernas y confiables
+
+            </p>
+
+        </div>
+
+    </div>
+
+ 
+
+    <script>
+
+        function handleFormSubmit(event) {
+
+            event.preventDefault();
+
+           
+
+            // Obtener datos del formulario
+
+            const formData = new FormData(event.target);
+
+            const data = {
+
+                nombre: formData.get('nombre'),
+
+                email: formData.get('email'),
+
+                telefono: formData.get('telefono'),
+
+                tipo: formData.get('tipo'),
+
+                mensaje: formData.get('mensaje')
+
+            };
+
+           
+
+            // Simular envío (en producción aquí irían las llamadas al servidor)
+
+            console.log('Datos del formulario:', data);
+
+           
+
+            // Mostrar mensaje de confirmación
+
+            alert('¡Gracias por tu consulta!\n\nHemos recibido tu mensaje y nos pondremos en contacto contigo pronto.\n\nEquipo MGxF');
+
+           
+
+            // Limpiar formulario
+
+            event.target.reset();
+
+           
+
+            return false;
+
+        }
+
+ 
+
+        // Animación suave al hacer scroll
+
+        function addScrollAnimations() {
+
+            const cards = document.querySelectorAll('.feature-card, .step, .parte-card');
+
+           
+
+            const observer = new IntersectionObserver((entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = '1';
+
+                        entry.target.style.transform = 'translateY(0)';
+
+                    }
+
+                });
+
+            }, {
+
+                threshold: 0.1,
+
+                rootMargin: '0px 0px -50px 0px'
+
+            });
+
+ 
+
+            cards.forEach(card => {
+
+                card.style.opacity = '0';
+
+                card.style.transform = 'translateY(20px)';
+
+                card.style.transition = 'all 0.6s ease';
+
+                observer.observe(card);
+
+            });
+
+        }
+
+ 
+
+        // Mejorar experiencia de usuario
+
+        function enhanceUserExperience() {
+
+            // Agregar efecto de escritura al título principal
+
+            const companyName = document.querySelector('.company-name');
+
+            if (companyName) {
+
+                companyName.style.animation = 'fadeIn 2s ease-in-out';
+
+            }
+
+ 
+
+            // Agregar estilo dinámico a los campos del formulario
+
+            const inputs = document.querySelectorAll('.form-input, .form-textarea, .form-select');
+
+            inputs.forEach(input => {
+
+                input.addEventListener('focus', function() {
+
+                    this.style.borderColor = '#D4AF37';
+
+                    this.style.boxShadow = '0 0 10px rgba(212, 175, 55, 0.3)';
+
+                });
+
+               
+
+                input.addEventListener('blur', function() {
+
+                    if (!this.value) {
+
+                        this.style.borderColor = '#e9ecef';
+
+                        this.style.boxShadow = 'none';
+
+                    }
+
+                });
+
+            });
+
+        }
+
+ 
+
+        // Ejecutar cuando la página esté completamente cargada
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            addScrollAnimations();
+
+            enhanceUserExperience();
+
+           
+
+            // Mensaje de bienvenida en consola para desarrolladores
+
+            console.log('%cMGxF - Mercado Ganadero de Futuros', 'color: #D4AF37; font-size: 20px; font-weight: bold;');
+
+            console.log('%cInnovando el futuro de la ganadería argentina', 'color: #2c3e50; font-size: 14px;');
+
+        });
+
+ 
+
+        // Agregar keyframes para animaciones CSS
+
+        const style = document.createElement('style');
+
+        style.textContent = `
+
+            @keyframes fadeIn {
+
+                from { opacity: 0; transform: translateY(-20px); }
+
+                to { opacity: 1; transform: translateY(0); }
+
+            }
+
+           
+
+            @keyframes pulse {
+
+                0% { transform: scale(1); }
+
+                50% { transform: scale(1.05); }
+
+                100% { transform: scale(1); }
+
+            }
+
+        `;
+
+        document.head.appendChild(style);
+
+    </script>
+
+</body>
+
+</html>
