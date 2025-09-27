@@ -1152,10 +1152,13 @@
  
            
 
-            <form class="contact-form" onsubmit="return handleFormSubmit(event)">
-
+ <form class="contact-form" action="https://formspree.io/f/xzzjdvgo" method="POST">
+                
+                <!-- Campos hidden para Formspree -->
+                <input type="hidden" name="_subject" value="Nueva consulta MGxF">
+                <input type="hidden" name="_next" value="https://ampeschi.github.io/mgxf">
+                
                 <div class="form-group">
-
                     <label class="form-label" for="nombre">Nombre / Empresa</label>
 
                     <input class="form-input" type="text" id="nombre" name="nombre" required
